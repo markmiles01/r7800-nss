@@ -20,9 +20,9 @@
 rm -rf bin
 
 # 并入 lean插件包feeds和firewall
-# git clone https://github.com/coolsnowwolf/lede
-# cp -r lede/package/lean package/
-# \cp lede/feeds.conf.default feeds.conf.default
+git clone https://github.com/coolsnowwolf/lede
+cp -r lede/package/lean package/
+cp lede/feeds.conf.default feeds.conf.default
 
 # git clone -b master --single-branch https://github.com/LGA1150/openwrt-fullconenat package/fullconenat
 # wget -P target/linux/generic/hack-5.4 https://raw.githubusercontent.com/coolsnowwolf/lede/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
@@ -46,14 +46,14 @@ svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-cpuf
 svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
 svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-unblockmusic package/lean/luci-app-unblockmusic
 
-mv package/lean/luci-app-cpufreq/po/zh-cn  package/lean/luci-app-cpufreq/po/zh_Hans
-mv package/lean/luci-app-unblockmusic/po/zh-cn package/lean/luci-app-unblockmusic/po/zh_Hans
-mv package/lean/luci-app-flowoffload/po/zh-cn package/lean/luci-app-flowoffload/po/zh_Hans
-mv package/lean/luci-app-autoreboot/po/zh-cn package/lean/luci-app-autoreboot/po/zh_Hans
-mv package/lean/luci-app-arpbind/po/zh-cn package/lean/luci-app-arpbind/po/zh_Hans
-mv package/lean/luci-app-accesscontrol/po/zh-cn package/lean/luci-app-accesscontrol/po/zh_Hans
+# mv package/lean/luci-app-cpufreq/po/zh-cn  package/lean/luci-app-cpufreq/po/zh_Hans
+# mv package/lean/luci-app-unblockmusic/po/zh-cn package/lean/luci-app-unblockmusic/po/zh_Hans
+# mv package/lean/luci-app-flowoffload/po/zh-cn package/lean/luci-app-flowoffload/po/zh_Hans
+# mv package/lean/luci-app-autoreboot/po/zh-cn package/lean/luci-app-autoreboot/po/zh_Hans
+# mv package/lean/luci-app-arpbind/po/zh-cn package/lean/luci-app-arpbind/po/zh_Hans
+# mv package/lean/luci-app-accesscontrol/po/zh-cn package/lean/luci-app-accesscontrol/po/zh_Hans
 
-# sed -i '$a src-git OpenAppFilter https://github.com/OpenWrt-Actions/OpenAppFilter' feeds.conf.default
+sed -i '$a src-git OpenAppFilter https://github.com/OpenWrt-Actions/OpenAppFilter' feeds.conf.default
 
 
 
@@ -92,4 +92,4 @@ sed  -i '/^# builddir dependencies/a\$(curdir)/upx/compile := $(curdir)/ucl/comp
  git config --global user.name "r7800"
  git init
  git add .
- git commit -m "添加lean 插件包 "
+ git commit -m "lean"
