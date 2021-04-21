@@ -23,7 +23,7 @@ env:
   REPO_URL: https://github.com/ACwifidude/openwrt
   #REPO_BRANCH: kernel5.4-nss-qsdk10.0
   REPO_BRANCH: openwrt-21.02-nss-qsdk10.0
-  BRANCH: R7800-with-NSS
+  BRANCH: openwrt-21.02-nss-qsdk10.0
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
@@ -31,7 +31,7 @@ env:
   FEED_CLEAN: feed-clean.sh
   DEF_SETS: zzz-default-settings
   UPLOAD_BRANCH: true
-  UPLOAD_BIN_DIR: false
+  UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
@@ -149,7 +149,7 @@ jobs:
           git config user.email $GITHUB_USER_EMAIL
           git add .
           git commit -m "Update OpenWrt_"$BRANCH
-          git push --force --quiet https://${{ secrets.RELEASE_TOKEN }}@$GITHUB HEAD:OpenWrt-$BRANCH
+          git push --force --quiet https://${{ secrets.RELEASE_TOKEN }}@$GITHUB HEAD:$BRANCH
     
     - name: Upload bin directory
       uses: actions/upload-artifact@main
