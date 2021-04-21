@@ -27,24 +27,25 @@ cp lede/feeds.conf.default feeds.conf.default
 # git clone -b master --single-branch https://github.com/LGA1150/openwrt-fullconenat package/fullconenat
 # wget -P target/linux/generic/hack-5.4 https://raw.githubusercontent.com/coolsnowwolf/lede/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
 
-# 添加 ssr plus 和passwall 支持源
+# custom packages
 sed -i '$a src-git kenzok8 https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-sed -i '$a src-git small  https://github.com/kenzok8/small' feeds.conf.default
+sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
+sed -i '$a src-git OpenAppFilter https://github.com/OpenWrt-Actions/OpenAppFilter' feeds.conf.default
 
-
-svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/default-settings package/lean/default-settings
-svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/UnblockNeteaseMusic package/lean/UnblockNeteaseMusic
-svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/UnblockNeteaseMusicGo package/lean/UnblockNeteaseMusicGo
-svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/baidupcs-web package/lean/baidupcs-web
+#svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/default-settings package/lean/default-settings
+#svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/UnblockNeteaseMusic package/lean/UnblockNeteaseMusic
+#svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/UnblockNeteaseMusicGo package/lean/UnblockNeteaseMusicGo
+#svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/baidupcs-web package/lean/baidupcs-web
 # svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/openwrt-fullconenat package/lean/openwrt-fullconenat
 
-svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-accesscontrol package/lean/luci-app-accesscontrol
-svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-arpbind package/lean/luci-app-arpbind
-svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-autoreboot package/lean/luci-app-autoreboot
-svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-baidupcs-web package/lean/luci-app-baidupcs-web
-svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
-svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
-svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-unblockmusic package/lean/luci-app-unblockmusic
+#svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-accesscontrol package/lean/luci-app-accesscontrol
+#svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-arpbind package/lean/luci-app-arpbind
+#svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-autoreboot package/lean/luci-app-autoreboot
+#svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-baidupcs-web package/lean/luci-app-baidupcs-web
+#svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
+#svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
+#svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-unblockmusic package/lean/luci-app-unblockmusic
 
 # mv package/lean/luci-app-cpufreq/po/zh-cn  package/lean/luci-app-cpufreq/po/zh_Hans
 # mv package/lean/luci-app-unblockmusic/po/zh-cn package/lean/luci-app-unblockmusic/po/zh_Hans
@@ -52,9 +53,6 @@ svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-unbl
 # mv package/lean/luci-app-autoreboot/po/zh-cn package/lean/luci-app-autoreboot/po/zh_Hans
 # mv package/lean/luci-app-arpbind/po/zh-cn package/lean/luci-app-arpbind/po/zh_Hans
 # mv package/lean/luci-app-accesscontrol/po/zh-cn package/lean/luci-app-accesscontrol/po/zh_Hans
-
-sed -i '$a src-git OpenAppFilter https://github.com/OpenWrt-Actions/OpenAppFilter' feeds.conf.default
-
 
 
 # 添加UPX UCL工具包
@@ -81,8 +79,6 @@ sed  -i '/^# builddir dependencies/a\$(curdir)/upx/compile := $(curdir)/ucl/comp
 # rm -rf package/lean/microsocks
 # rm -rf package/lean/aria2
 # rm -rf package/lean/minidlna
-
-
 
 # 删除lede文件夹
 # rm -rf lede
