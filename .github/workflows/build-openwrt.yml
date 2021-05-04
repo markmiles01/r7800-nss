@@ -18,26 +18,16 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-name: CI
-  on: [push]
-    workflow_dispatch:
-      inputs:
-        debug_enabled:
-          description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'     
-          required: false
-          default: false
-  jobs:
+      debug_enabled:
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'     
+        required: false
+        default: false
+
+jobs:
     build:
       runs-on: ubuntu-latest
       steps:
-      - uses: actions/checkout@v2
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled }}
-        timeout-minutes: 15
-          with:
-            limit-access-to-actor: true
-#           sudo: false
+
 
 env:
   REPO_URL: https://github.com/ACwifidude/openwrt
@@ -87,7 +77,17 @@ jobs:
         # You can find related documents here: https://core.telegram.org/bots
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-    
+      
+    - name: tmate SSH
+    - uses: actions/checkout@v2
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled }}
+      timeout-minutes: 15
+        with:
+          limit-access-to-actor: true
+#         sudo: false
+  
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
