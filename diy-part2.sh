@@ -80,47 +80,47 @@ sed -i 's/192.168.1.1/10.211.39.1/g' package/base-files/files/bin/config_generat
 #CONFIG_PACKAGE_block-mount=y
 #EOF
 
-# SYSTEM APPS:
-cat >> .config <<EOF
-CONFIG_PACKAGE_mtr=y
-CONFIG_PACKAGE_bash=y
-CONFIG_PACKAGE_zsh=y
-CONFIG_PACKAGE_curl=y
-CONFIG_PACKAGE_htop=y
-CONFIG_PACKAGE_nano=y
-CONFIG_PACKAGE_screen=y
-CONFIG_PACKAGE_tree=y
-CONFIG_PACKAGE_vim-fuller=y
-CONFIG_PACKAGE_wget=y
-CONFIG_PACKAGE_htop=y
-CONFIG_PACKAGE_subversion-server=y
-CONFIG_PACKAGE_subversion-client=y
-EOF
+## SYSTEM APPS:
+#cat >> .config <<EOF
+#CONFIG_PACKAGE_mtr=y
+#CONFIG_PACKAGE_bash=y
+#CONFIG_PACKAGE_zsh=y
+#CONFIG_PACKAGE_curl=y
+#CONFIG_PACKAGE_htop=y
+#CONFIG_PACKAGE_nano=y
+#CONFIG_PACKAGE_screen=y
+#CONFIG_PACKAGE_tree=y
+#CONFIG_PACKAGE_vim-fuller=y
+#CONFIG_PACKAGE_wget=y
+#CONFIG_PACKAGE_htop=y
+#CONFIG_PACKAGE_subversion-server=y
+#CONFIG_PACKAGE_subversion-client=y
+#EOF
 
 # luci apps :
-# IPv6:
-cat >> .config <<EOF
-CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
-CONFIG_PACKAGE_ipv6helper=y
-EOF
+## IPv6:
+#cat >> .config <<EOF
+#CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
+#CONFIG_PACKAGE_ipv6helper=y
+#EOF
 
-# samba:
-cat >> .config <<EOF
-CONFIG_PACKAGE_luci-app-samba4=y
-CONFIG_PACKAGE_samba4-server=y
-CONFIG_PACKAGE_samba4-client=y
-EOF
+## samba:
+#cat >> .config <<EOF
+#CONFIG_PACKAGE_luci-app-samba4=y
+#CONFIG_PACKAGE_samba4-server=y
+#CONFIG_PACKAGE_samba4-client=y
+#EOF
 
-# stock:
-cat >> .config <<EOF
-CONFIG_PACKAGE_luci-app-adbyby-plus=y
-CONFIG_PACKAGE_luci-app-qos-gargoyle=y
-CONFIG_PACKAGE_luci-app-autoreboot=y
-CONFIG_PACKAGE_luci-app-upnp=y 
-CONFIG_PACKAGE_luci-app-ddns=y
-CONFIG_PACKAGE_luci-app-wol=y
-CONFIG_PACKAGE_luci-app-control-mia=y
-EOF
+## stock:
+#cat >> .config <<EOF
+##CONFIG_PACKAGE_luci-app-adbyby-plus=y
+##CONFIG_PACKAGE_luci-app-qos-gargoyle=y
+#CONFIG_PACKAGE_luci-app-autoreboot=y
+#CONFIG_PACKAGE_luci-app-upnp=y 
+#CONFIG_PACKAGE_luci-app-ddns=y
+##CONFIG_PACKAGE_luci-app-wol=y
+##CONFIG_PACKAGE_luci-app-control-mia=y
+#EOF
 
 # luci themes:
 cat >> .config <<EOF
@@ -142,6 +142,7 @@ CONFIG_PACKAGE_luci-theme-darkmatter=y
 EOF
 
 # luci custom packages:
+cat >> .config <<EOF
 CONFIG_PACKAGE_luci-app-accesscontrol=y
 CONFIG_PACKAGE_luci-app-adguardhome=y
 CONFIG_PACKAGE_luci-app-advanced=y
@@ -293,6 +294,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 CONFIG_PACKAGE_luci-proto-bonding=y
 CONFIG_PACKAGE_luci-proto-minieap=y
 CONFIG_PACKAGE_luci-proto-netkeeper=y
+EOF
 
 # luci app options
 cat >> .config <<EOF
