@@ -74,12 +74,12 @@ jobs:
     - name: tmate SSH
     - uses: actions/checkout@v2
     - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
-      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled }}
+    - uses: mxschmitt/action-tmate@v3
       timeout-minutes: 15
         with:
           limit-access-to-actor: true
 #         sudo: false
+      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled }}  
   
     - name: Initialization environment
       env:
