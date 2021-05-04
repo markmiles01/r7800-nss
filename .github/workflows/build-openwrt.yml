@@ -18,12 +18,31 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
+name: CI
+  on: [push]
+    workflow_dispatch:
+      inputs:
+        debug_enabled:
+          description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'     
+          required: false
+          default: false
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v2
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled }}
+        timeout-minutes: 15
+          with:
+            limit-access-to-actor: true
+#           sudo: false
 
 env:
   REPO_URL: https://github.com/ACwifidude/openwrt
-  #REPO_BRANCH: kernel5.4-nss-qsdk10.0
-  REPO_BRANCH: openwrt-21.02-nss-qsdk10.0
-  BRANCH: openwrt-21.02-nss-qsdk10.0
+  REPO_BRANCH: kernel5.4-nss-qsdk10.0
+  BRANCH: r7800-nss
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
