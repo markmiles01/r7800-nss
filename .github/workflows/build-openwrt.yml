@@ -72,13 +72,13 @@ jobs:
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       
     - name: tmate SSH
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
     - name: Setup tmate session
-    - uses: mxschmitt/action-tmate@v3
-      timeout-minutes: 15
-        with:
+      uses: mxschmitt/action-tmate@v3
+      with:
           limit-access-to-actor: true
 #         sudo: false
+      timeout-minutes: 15
       if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled }}  
   
     - name: Initialization environment
