@@ -10,28 +10,25 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
-# Uncomment a feed source
-#sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
-
-# Add a feed source
-#sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
-
-# 移除ACwifidude自带bin目录
 rm -rf bin
 
-# 并入 lean插件包feeds和firewall
+# lean
 git clone https://github.com/coolsnowwolf/lede
 cp -r lede/package/lean package/
 cp lede/feeds.conf.default feeds.conf.default
 
 # git clone -b master --single-branch https://github.com/LGA1150/openwrt-fullconenat package/fullconenat
 # wget -P target/linux/generic/hack-5.4 https://raw.githubusercontent.com/coolsnowwolf/lede/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
+git clone -b master --single-branch https://github.com/Ansuel/nginx-ubus-module package/nginx-ubus-module
 
 # custom packages
 #sed -i '$a src-git kenzok8 https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 sed -i '$a src-git k8all https://github.com/kenzok8/packages-1' feeds.conf.default
 sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 sed -i '$a src-git OpenAppFilter https://github.com/OpenWrt-Actions/OpenAppFilter' feeds.conf.default
+
+# Uncomment a feed source
+sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 #svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/default-settings package/lean/default-settings
 #svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/UnblockNeteaseMusic package/lean/UnblockNeteaseMusic
@@ -55,20 +52,18 @@ sed -i '$a src-git OpenAppFilter https://github.com/OpenWrt-Actions/OpenAppFilte
 # mv package/lean/luci-app-accesscontrol/po/zh-cn package/lean/luci-app-accesscontrol/po/zh_Hans
 
 
-# 添加UPX UCL工具包
+# UPX UCL
 # cp -r lede/tools/upx tools
 # cp -r lede/tools/ucl tools
 mkdir -p tools/ucl && wget -P tools/ucl https://raw.githubusercontent.com/coolsnowwolf/lede/master/tools/ucl/Makefile
 mkdir -p tools/upx && wget -P tools/upx https://raw.githubusercontent.com/coolsnowwolf/lede/master/tools/upx/Makefile
 
-# 修改makefile
+# Makefile
 sed  -i '/^# builddir dependencies/i\tools-y += ucl upx' ./tools/Makefile
 sed  -i '/^# builddir dependencies/a\$(curdir)/upx/compile := $(curdir)/ucl/compile' ./tools/Makefile
 # sed  -i '/tools-$(CONFIG_TARGET_orion_generic)/atools-y += ucl upx' tools/Makefile
 # sed  -i '/dependencies/a\\$(curdir)/upx/compile := $(curdir)/ucl/compile' tools/Makefile
 
-
-# 删除重复插件
 # rm -rf package/lean/ipt2socks
 # rm -rf package/lean/dns2socks
 # rm -rf package/lean/pdnsd-alt
@@ -83,9 +78,9 @@ sed  -i '/^# builddir dependencies/a\$(curdir)/upx/compile := $(curdir)/ucl/comp
 # 删除lede文件夹
 # rm -rf lede
 
- cd package/lean
- git config --global user.email "markmiles01@gmail.com"
- git config --global user.name "markmiles01"
- git init
- git add .
- git commit -m "lean"
+#cd package/lean
+# git config --global user.email "markmiles01@gmail.com"
+# git config --global user.name "markmiles01"
+# git init
+# git add .
+# git commit -m "lean"
