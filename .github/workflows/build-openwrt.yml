@@ -41,9 +41,9 @@ on:
         required: false
         default: 'false'
       debug_enabled:
-        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'     
-        required: false
-        default: false
+#        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'     
+#        required: false
+#        default: false
 jobs:
   build:
     runs-on:  ubuntu-latest
@@ -71,15 +71,15 @@ jobs:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       
-    - name: tmate SSH
-      uses: actions/checkout@v2
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
-      with:
-          limit-access-to-actor: true
-#         sudo: false
-      timeout-minutes: 15
-      if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled }}  
+ #   - name: tmate SSH
+ #     uses: actions/checkout@v2
+ #   - name: Setup tmate session
+ #     uses: mxschmitt/action-tmate@v3
+ #     with:
+ #         limit-access-to-actor: true
+ ##         sudo: false
+ #     timeout-minutes: 15
+ #     if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled }}  
   
     - name: Initialization environment
       env:
@@ -223,15 +223,10 @@ jobs:
         name: Netgear ${{ env.BRANCH }} 🚀 | 自动编译 / ${{ env.RELEASE_TAG }}
         tag_name: ${{ env.RELEASE_TAG }}
         body: |            
-            1、本固件为自动编译
-            2、发行版中只提供完整的固件
-            3、需要单独IPK请到分支下载
-            4、固件源码：${{ env.REPO_URL }}
+            ${{ env.REPO_URL }}
             -- Build by ${{ env.BUILD_USER }} @ with Github Action on ${{ env.RELEASE_TAG }}
             🚀 Auto build | 自动编译    
-            当前使用版本:（编译前的最后一次ACwifidude源码更新记录）   
-            混合https://github.com/coolsnowwolf/lede 的Packages编译
-            集成 https://github.com/kenzok8/openwrt-packages 插件包
+            https://github.com/kenzok8/packages-1
             ${{ env.useVersionInfo }}
             ${{ github.event.commits[0].message }}
         files: ${{ env.FIRMWARE }}/*
