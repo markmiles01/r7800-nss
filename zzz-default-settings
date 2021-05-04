@@ -34,7 +34,7 @@ uci set fstab.@global[0].anon_mount=1
 uci commit fstab
 
 # 设置默认管理IP地址
-uci set network.lan.ipaddr='192.168.61.1'
+uci set network.lan.ipaddr='10.211.39.1'
 uci set network.lan.netmask='255.255.255.0'
 uci set network.lan.delegate='0'
 uci set network.wan.delegate='0'
