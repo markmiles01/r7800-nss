@@ -10,25 +10,6 @@
 
 name: Build OpenWrt
 
-on:
-  repository_dispatch:
-  workflow_dispatch:
-    inputs:
-      ssh:
-        description: 'SSH connection to Actions'
-        required: false
-        default: 'false'
-      debug_enabled:
-        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'     
-        required: false
-        default: false
-
-jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps:
-
-
 env:
   REPO_URL: https://github.com/ACwifidude/openwrt
   REPO_BRANCH: kernel5.4-nss-qsdk10.0
@@ -50,7 +31,19 @@ env:
   GITHUB_USER_NAME: markmiles01
   GITHUB_USER_EMAIL: ${{ secrets.EMAIL }}
   GITHUB: github.com/markmiles01/r7800-nss.git
-  
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
+      debug_enabled:
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'     
+        required: false
+        default: false
 jobs:
   build:
     runs-on:  ubuntu-latest
