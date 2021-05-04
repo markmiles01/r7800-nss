@@ -28,8 +28,8 @@ cp lede/feeds.conf.default feeds.conf.default
 # wget -P target/linux/generic/hack-5.4 https://raw.githubusercontent.com/coolsnowwolf/lede/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
 
 # custom packages
-sed -i '$a src-git kenzok8 https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+#sed -i '$a src-git kenzok8 https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+sed -i '$a src-git k8all https://github.com/kenzok8/packages-1' feeds.conf.default
 sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 sed -i '$a src-git OpenAppFilter https://github.com/OpenWrt-Actions/OpenAppFilter' feeds.conf.default
 
@@ -84,8 +84,8 @@ sed  -i '/^# builddir dependencies/a\$(curdir)/upx/compile := $(curdir)/ucl/comp
 # rm -rf lede
 
  cd package/lean
- git config --global user.email "r7800@openwrt.com"
- git config --global user.name "r7800"
+ git config --global user.email "markmiles01@gmail.com"
+ git config --global user.name "markmiles01"
  git init
  git add .
  git commit -m "lean"
