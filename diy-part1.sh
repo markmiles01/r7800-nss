@@ -11,12 +11,12 @@
 #
 
 git clone https://github.com/ACwifidude/openwrt
-rm -rf bin feeds.conf.default
-echo "src-git k8all https://github.com/kenzok8/packages-1" > feeds.conf.default
+rm -rf bin
 # Uncomment a feed source
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # custom packages
+echo "src-git packages-1 https://github.com/kenzok8/packages-1" >> feeds.conf.default
 ##sed -i '$a src-git k8all https://github.com/kenzok8/packages-1' feeds.conf.default
 #sed -i '$a src-git kenzok8 https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 #sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
