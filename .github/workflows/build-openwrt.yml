@@ -13,7 +13,7 @@ name: Build OpenWrt
 env:
   REPO_URL: https://github.com/ACwifidude/openwrt
   REPO_BRANCH: kernel5.4-nss-qsdk10.0
-  BRANCH: r7800-nss
+  BRANCH: main
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
