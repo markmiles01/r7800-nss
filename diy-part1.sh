@@ -20,7 +20,7 @@ rm -rf bin
 sed -i '$a src-git kenzok8 https://github.com/kenzok8/packages-1' feeds.conf.default
 #sed -i '$a src-git kenzok8 https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 #sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
-sed -i '$a src-git OpenAppFilter https://github.com/OpenWrt-Actions/OpenAppFilter' feeds.conf.default
+#sed -i '$a src-git OpenAppFilter https://github.com/OpenWrt-Actions/OpenAppFilter' feeds.conf.default
 
 # git clone -b master --single-branch https://github.com/LGA1150/openwrt-fullconenat package/fullconenat
 # wget -P target/linux/generic/hack-5.4 https://raw.githubusercontent.com/coolsnowwolf/lede/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
@@ -60,19 +60,9 @@ sed  -i '/^# builddir dependencies/a\$(curdir)/upx/compile := $(curdir)/ucl/comp
 sed  -i '/tools-$(CONFIG_TARGET_orion_generic)/atools-y += ucl upx' tools/Makefile
 sed  -i '/dependencies/a\\$(curdir)/upx/compile := $(curdir)/ucl/compile' tools/Makefile
 
-# rm -rf package/lean/ipt2socks
-# rm -rf package/lean/dns2socks
-# rm -rf package/lean/pdnsd-alt
-# rm -rf package/lean/shadowsocksr-libev
-# rm -rf package/lean/simple-obfs
-# rm -rf package/lean/v2ray-plugin
-# rm -rf package/lean/v2ray
-# rm -rf package/lean/microsocks
-# rm -rf package/lean/aria2
-# rm -rf package/lean/minidlna
-
-# 删除lede文件夹
-# rm -rf lede
+sed -i 's/+iptables_mod_ipq/+kmod-ifb/g' package/feeds/kenzok8/luci-app-qosv4/Makefile
+rm -rf package/feeds/kenzok8/luci-app-k3screenctrl
+rm -rf  package/feeds/kenzok8/qBittorrent-Enhanced-Edition
 
 #cd package/lean
 # git config --global user.email "markmiles01@gmail.com"
