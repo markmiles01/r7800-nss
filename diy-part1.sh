@@ -60,7 +60,7 @@ sed  -i '/^# builddir dependencies/a\$(curdir)/upx/compile := $(curdir)/ucl/comp
 sed  -i '/tools-$(CONFIG_TARGET_orion_generic)/atools-y += ucl upx' tools/Makefile
 sed  -i '/dependencies/a\\$(curdir)/upx/compile := $(curdir)/ucl/compile' tools/Makefile
 
-sed -i 's/+iptables_mod_ipq/+kmod-ifb/g' package/feeds/kenzok8/luci-app-qosv4/Makefile
+sed -i 's/+iptables-mod-imq/+kmod-ifb/g' package/feeds/kenzok8/luci-app-qosv4/Makefile
 rm -rf package/feeds/kenzok8/luci-app-k3screenctrl
 rm -rf  package/feeds/kenzok8/qBittorrent-Enhanced-Edition
 rm -rf package/feeds/kenzok8/MentoHUST-OpenWrt-ipk
