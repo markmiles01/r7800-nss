@@ -63,6 +63,7 @@ sed  -i '/dependencies/a\\$(curdir)/upx/compile := $(curdir)/ucl/compile' tools/
 sed -i 's/+iptables_mod_ipq/+kmod-ifb/g' package/feeds/kenzok8/luci-app-qosv4/Makefile
 rm -rf package/feeds/kenzok8/luci-app-k3screenctrl
 rm -rf  package/feeds/kenzok8/qBittorrent-Enhanced-Edition
+rm -rf package/feeds/kenzok8/MentoHUST-OpenWrt-ipk
 
 #cd package/lean
 # git config --global user.email "markmiles01@gmail.com"
