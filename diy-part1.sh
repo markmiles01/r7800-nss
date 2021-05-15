@@ -51,17 +51,18 @@ git clone -b master --single-branch https://github.com/Ansuel/nginx-ubus-module 
 # UPX UCL
 # cp -r lede/tools/upx tools
 # cp -r lede/tools/ucl tools
-mkdir -p tools/ucl && wget -P tools/ucl https://raw.githubusercontent.com/coolsnowwolf/lede/master/tools/ucl/Makefile
-mkdir -p tools/upx && wget -P tools/upx https://raw.githubusercontent.com/coolsnowwolf/lede/master/tools/upx/Makefile
+##mkdir -p tools/ucl && wget -P tools/ucl https://raw.githubusercontent.com/coolsnowwolf/lede/master/tools/ucl/Makefile
+##mkdir -p tools/upx && wget -P tools/upx https://raw.githubusercontent.com/coolsnowwolf/lede/master/tools/upx/Makefile
 
-# Makefile
-sed  -i '/^# builddir dependencies/i\tools-y += ucl upx' ./tools/Makefile
-sed  -i '/^# builddir dependencies/a\$(curdir)/upx/compile := $(curdir)/ucl/compile' ./tools/Makefile
-sed  -i '/tools-$(CONFIG_TARGET_orion_generic)/atools-y += ucl upx' tools/Makefile
-sed  -i '/dependencies/a\\$(curdir)/upx/compile := $(curdir)/ucl/compile' tools/Makefile
+### Makefile
+##sed  -i '/^# builddir dependencies/i\tools-y += ucl upx' ./tools/Makefile
+##sed  -i '/^# builddir dependencies/a\$(curdir)/upx/compile := $(curdir)/ucl/compile' ./tools/Makefile
+##sed  -i '/tools-$(CONFIG_TARGET_orion_generic)/atools-y += ucl upx' tools/Makefile
+##sed  -i '/dependencies/a\\$(curdir)/upx/compile := $(curdir)/ucl/compile' tools/Makefile
 
 sed -i 's/+iptables-mod-imq/+kmod-ifb/g' package/feeds/kenzok8/luci-app-qosv4/Makefile
 rm -rf package/feeds/kenzok8/luci-app-k3screenctrl
+rm -rf package/feeds/kenzok8/luci-app-qbittorrent
 rm -rf  package/feeds/kenzok8/qBittorrent-Enhanced-Edition
 rm -rf package/feeds/kenzok8/MentoHUST-OpenWrt-ipk
 
