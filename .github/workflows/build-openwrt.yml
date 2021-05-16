@@ -11,8 +11,10 @@
 name: Build OpenWrt
 
 env:
-  REPO_URL: https://github.com/ACwifidude/openwrt
-  REPO_BRANCH: kernel5.4-nss-qsdk10.0
+  REPO_URL: https://github.com/Ansuel/openwrt
+  REPO_BRANCH: ipq806x-5.10-dsa
+#  REPO_URL: https://github.com/ACwifidude/openwrt
+#  REPO_BRANCH: kernel5.4-nss-qsdk10.0
   BRANCH: main
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
