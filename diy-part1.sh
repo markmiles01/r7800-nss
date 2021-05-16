@@ -17,7 +17,7 @@ rm -rf bin
 
 # custom packages
 #echo "src-git packages-1 https://github.com/kenzok8/packages-1" >> feeds.conf.default
-sed -i '$a src-git kenzok8 https://github.com/kenzok8/packages-1' feeds.conf.default
+sed -i '$a src-git kenzok8 https://github.com/kenzok8/jell' feeds.conf.default
 #sed -i '$a src-git kenzok8 https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 #sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 #sed -i '$a src-git OpenAppFilter https://github.com/OpenWrt-Actions/OpenAppFilter' feeds.conf.default
@@ -25,6 +25,7 @@ sed -i '$a src-git kenzok8 https://github.com/kenzok8/packages-1' feeds.conf.def
 # git clone -b master --single-branch https://github.com/LGA1150/openwrt-fullconenat package/fullconenat
 # wget -P target/linux/generic/hack-5.4 https://raw.githubusercontent.com/coolsnowwolf/lede/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
 git clone -b master --single-branch https://github.com/Ansuel/nginx-ubus-module package/nginx-ubus-module
+git clone -b master --single-branch https://github.com/Ansuel/uwsg package/uwsg
 
 #svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/default-settings package/lean/default-settings
 #svn export https://github.com/coolsnowwolf/lede/trunk/package/lean/UnblockNeteaseMusic package/lean/UnblockNeteaseMusic
@@ -63,7 +64,7 @@ git clone -b master --single-branch https://github.com/Ansuel/nginx-ubus-module 
 sed -i 's/+iptables-mod-imq/+kmod-ifb/g' package/feeds/kenzok8/luci-app-qosv4/Makefile
 rm -rf package/feeds/kenzok8/luci-app-k3screenctrl
 rm -rf package/feeds/kenzok8/luci-app-qbittorrent
-rm -rf  package/feeds/kenzok8/qBittorrent-Enhanced-Edition
+rm -rf package/feeds/kenzok8/qBittorrent-Enhanced-Edition
 rm -rf package/feeds/kenzok8/MentoHUST-OpenWrt-ipk
 
 #cd package/lean
