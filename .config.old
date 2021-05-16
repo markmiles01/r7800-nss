@@ -1,5 +1,5 @@
-CONFIG_CC_IS_GCC=y
-CONFIG_GCC_VERSION=100201
+#CONFIG_CC_IS_GCC=y
+#CONFIG_GCC_VERSION=100201
 ##CONFIG_LD_VERSION=235010000
 ##CONFIG_CLANG_VERSION=0
 ##CONFIG_GCC_VERSION="8.4.0"
@@ -43,6 +43,9 @@ CONFIG_HAS_SUBTARGETS=y
 CONFIG_HAS_DEVICES=y
 CONFIG_TARGET_BOARD="ipq806x"
 CONFIG_TARGET_SUBTARGET="generic"
+CONFIG_TARGET_ipq806x=y
+CONFIG_TARGET_ipq806x_generic=y
+CONFIG_TARGET_ipq806x_generic_DEVICE_netgear_r7800=y
 CONFIG_TARGET_ARCH_PACKAGES="arm_cortex-a15_neon-vfpv4"
 CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe"
 CONFIG_CPU_TYPE="cortex-a15+neon-vfpv4"
@@ -156,6 +159,25 @@ CONFIG_NAND_SUPPORT=y
 CONFIG_arm=y
 CONFIG_arm_v7=y
 CONFIG_ARCH="arm"
+
+# NSS
+CONFIG_PACKAGE_MAC80211_NSS_SUPPORT=y
+CONFIG_PACKAGE_kmod-fast-classifier=y
+CONFIG_PACKAGE_kmod-qca-nss-crypto=y
+CONFIG_PACKAGE_kmod-qca-nss-drv=y
+CONFIG_PACKAGE_kmod-qca-nss-drv-eogremgr=y
+CONFIG_PACKAGE_kmod-qca-nss-drv-gre=y
+CONFIG_PACKAGE_kmod-qca-nss-drv-pppoe=y
+CONFIG_PACKAGE_kmod-qca-nss-drv-qdisc=y
+CONFIG_PACKAGE_kmod-qca-nss-drv-tun6rd=y
+CONFIG_PACKAGE_kmod-qca-nss-drv-tunipip6=y
+CONFIG_PACKAGE_kmod-qca-nss-ecm-standard=y
+CONFIG_PACKAGE_kmod-qca-rfs=y
+CONFIG_PACKAGE_kmod-qca-ssdk-hnat=y
+CONFIG_PACKAGE_kmod-shortcut-fe=y
+CONFIG_PACKAGE_kmod-shortcut-fe-drv=y
+CONFIG_PACKAGE_qca-nss-firmware=y
+CONFIG_PACKAGE_qca-ssdk-shell=y
 
 # IPv6 packages
 CONFIG_PACKAGE_464xlat=y
