@@ -61,6 +61,8 @@ git clone -b master --single-branch https://github.com/Ansuel/uwsg package/uwsg
 ##sed  -i '/tools-$(CONFIG_TARGET_orion_generic)/atools-y += ucl upx' tools/Makefile
 ##sed  -i '/dependencies/a\\$(curdir)/upx/compile := $(curdir)/ucl/compile' tools/Makefile
 
+wget -O diffconfig https://downloads.openwrt.org/releases/21.02.0-rc1/targets/ipq806x/generic/config.buildinfo
+
 sed -i 's/+iptables-mod-imq/+kmod-ifb/g' package/feeds/kenzok8/luci-app-qosv4/Makefile
 rm -rf package/feeds/kenzok8/luci-app-k3screenctrl
 rm -rf package/feeds/kenzok8/luci-app-qbittorrent
