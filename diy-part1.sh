@@ -68,6 +68,8 @@ rm -rf package/feeds/kenzok8/luci-app-k3screenctrl
 rm -rf package/feeds/kenzok8/luci-app-qbittorrent
 rm -rf package/feeds/kenzok8/qBittorrent-Enhanced-Edition
 rm -rf package/feeds/kenzok8/MentoHUST-OpenWrt-ipk
+rm -rf package/feeds/kenzok8/luci-app-xray
+rm -rf package/feeds/kenzok8/luci-app-airwhu
 
 #cd package/lean
 # git config --global user.email "markmiles01@gmail.com"
